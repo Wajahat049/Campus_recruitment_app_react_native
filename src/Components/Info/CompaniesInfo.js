@@ -68,9 +68,9 @@ function CompaniesInfo(props) {
   
     }
 
-  const renderingItem = (element) => {
+  const renderingItem = (element, index) => {
     return (
-      <TouchableHighlight key={element.index}  onPress={() => onpressFunc(element.item)}>
+      <TouchableHighlight key={index}  onPress={() => onpressFunc(element.item)}>
         <View>
 
           <DataTable.Row style={{ backgroundColor: "white" }}>
