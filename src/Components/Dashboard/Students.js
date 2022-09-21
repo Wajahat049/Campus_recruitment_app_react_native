@@ -46,7 +46,7 @@ function Students(props) {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.card} onPress={() => props.navigation.navigate("CompanyHire")} >
-        <Image source={require("../../Images/student-profile.png")} style={styles.cardImg} />
+        <Image source={require("../../Images/company-hire.png")} style={styles.cardImg} />
         <Text style={styles.cardText}>
           Company Hiring
         </Text>
