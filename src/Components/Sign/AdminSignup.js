@@ -10,11 +10,12 @@ function AdminSignup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const save_data=(props)=>{
-    let user={
-        name, email , pass
+
+  const save_data = (props) => {
+    let user = {
+      name, email, pass
     }
-    database().ref(`/Admin/`).update({user})
+    database().ref(`/Admin/`).update({ user })
   }
 
   return (
@@ -24,23 +25,23 @@ function AdminSignup() {
         <Image style={{width:"60%",height:200,alignSelf:"center"}} source={require("../../Images/sign-up.png")}/>
       </View>
       <View>
-        <Text style={{ fontSize: 50, color: "#00b8e6", fontWeight: 'bold',marginBottom:10 }}>SignUp</Text>
+        <Text style={{ fontSize: 50, color: "#00b8e6", fontWeight: 'bold', marginBottom: 10 }}>SignUp</Text>
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 10 }}>
         <TextInput value={name} onChangeText={(e) => setName(e)} placeholder="Name" />
       </View>
-      <View style={{borderWidth:3,borderColor:"#00b8e6",width:"80%", margin:10}}>
-        <TextInput value={email} onChangeText={(e)=>setEmail(e)} placeholder="Email"/>
+      <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 10 }}>
+        <TextInput value={email} onChangeText={(e) => setEmail(e)} placeholder="Email" />
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 10 }}>
         <TextInput secureTextEntry={true} value={pass} onChangeText={(e) => setPass(e)} placeholder="Password" />
       </View>
-    <View>
-      <View style={{marginTop:20, width:150}}>
-      <Button  color = "#00b8e6" style={{fontSize:30}} onPress={()=>save_data()} title="Signup"></Button>
+      <View>
+        <View style={{ marginTop: 20, width: 150 }}>
+          <Button color="#00b8e6" style={{ fontSize: 30 }} onPress={() => save_data()} title="Signup"></Button>
+        </View>
       </View>
-    </View>
-    
+
     </View>
   );
 }
