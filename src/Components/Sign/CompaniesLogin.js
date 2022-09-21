@@ -33,7 +33,10 @@ function CompaniesLogin(props) {
 }
 if(props.Company.Name==undefined){
     return(
-      <View style={{ alignItems: 'center', justifyContent: 'center',marginTop:"20%" }}>
+      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{width:"100%"}}>
+        <Image style={{width:"60%",height:200,alignSelf:"center"}} source={require("../../Images/log-in.png")}/>
+      </View>
       <View>
         <Text style={{ fontSize: 50, color: '#00b8e6', fontWeight: 'bold' }}>Company Login</Text>
       </View>

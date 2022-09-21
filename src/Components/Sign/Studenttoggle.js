@@ -1,32 +1,38 @@
 import * as React from 'react';
 import { BottomNavigation,Button } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { View, Text,TextInput,Alert } from 'react-native';
+import { View, Text,TextInput,Alert,useWindowDimensions } from 'react-native';
 import StudentSignUp from './StudentsSignup';
 import StudentLogin from './StudentsLogin';
+import { TabView, SceneMap } from 'react-native-tab-view';
 
 
-const signupRoute = () => <StudentSignUp/>;
-
-const loginRoute = () => <StudentLogin/> ;
-
+const renderScene = ({ route, jumpTo }) => {
+  switch (route.key) {
+    case 'login':
+      return <StudentLogin navigation={route.props.navigation}  jumpTo={jumpTo} />;
+    case 'signup':
+      return <StudentSignUp navigation={route.props.navigation} jumpTo={jumpTo} />;
+  }
+};
 
 const StudentToggle = (props) => {
-    const [show,setShow]=React.useState("signup")
+  const layout = useWindowDimensions();
 
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'login', title: 'Login',props:props },
+    { key: 'signup', title: 'Signup',props:props },
+  ]);
 
+   
     return (
-        <View>
-           {show=="signup"?<StudentSignUp navigation={props.navigation}></StudentSignUp>:< StudentLogin navigation={props.navigation}></StudentLogin>}
-<View style={{flexDirection:"row",position:"absolute",marginTop:"165%"}}>
-<Button style={{width:"50%",padding:"3%"}} color="deepskyblue" icon="book" mode="contained" onPress={() => setShow("signup")}>
-    Signup
-  </Button>
-  <Button style={{width:"50%",padding:"3%"}} color="deepskyblue" icon="book" mode="contained" onPress={() => setShow("login")}>
-    Login
-  </Button>
-  </View>
-       </View>
+       <TabView
+       navigationState={{ index, routes }}
+       renderScene={renderScene}
+       onIndexChange={setIndex}
+       initialLayout={{ width: layout.width }}
+     />
     );
 };
 

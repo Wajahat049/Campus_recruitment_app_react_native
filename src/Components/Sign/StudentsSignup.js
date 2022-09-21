@@ -1,7 +1,7 @@
 
 
 import * as React from 'react';
-import { View, Text, Button, TextInput } from 'react-native';
+import { View, Text, Button, TextInput,Image } from 'react-native';
 import database from "@react-native-firebase/database";
 import { useState } from 'react';
 // import {Picker} from "@react-native-picker/picker";
@@ -34,7 +34,10 @@ function StudentsSignUp(props) {
   }
   
   return (
-    <View style={{ alignItems: 'center', justifyContent: 'center'}}>
+    <View style={{ alignItems: 'center', justifyContent: 'center',marginBottom:"75%",marginTop:"20%"}}>
+      <View style={{width:"100%"}}>
+        <Image style={{width:"60%",height:200,alignSelf:"center"}} source={require("../../Images/sign-up.png")}/>
+      </View>
       <View>
         <Text style={{ fontSize: 50, color: '#00b8e6', fontWeight: 'bold',marginBottom:10 }}>SignUp</Text>
       </View>

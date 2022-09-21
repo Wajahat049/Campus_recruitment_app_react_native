@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Button, TextInput, } from 'react-native';
+import { View, Text, Button, TextInput,Image } from 'react-native';
 import database from "@react-native-firebase/database";
 import { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -33,7 +33,10 @@ function CompaniesSignUp(props) {
   }
 
   return (
-      <View style={{ alignItems: 'center', justifyContent: 'center',marginTop:"10%" }}>
+    <View style={{ alignItems: 'center', justifyContent: 'center',marginBottom:"75%",marginTop:"20%"}}>
+    <View style={{width:"100%"}}>
+      <Image style={{width:"60%",height:200,alignSelf:"center"}} source={require("../../Images/sign-up.png")}/>
+    </View>
         <View>
           <Text style={{ fontSize: 40, color: '#00b8e6', fontWeight: 'bold', bottom:11 }}>SignUp</Text>
         </View>
