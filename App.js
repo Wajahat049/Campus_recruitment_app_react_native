@@ -28,7 +28,7 @@ import {
 import Navigation from './src/Config/Nav.js';
 import {Provider} from "react-redux";
 import store from './src/Store';
-import Toggle from './src/Components/Sign/toggle';
+// import Toggle from './src/Components/Sign/toggle';
 
 const App = () => {
   return (
