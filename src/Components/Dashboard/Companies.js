@@ -20,7 +20,7 @@ function Companies(props) {
     <ScrollView style={{backgroundColor: "white", paddingBottom: 30}}>
       <View style={{ alignItems: 'center', justifyContent: 'center',  }}>
 
-        <Image source={require("../../Images/studentDashboard.png")} style={{ height: 300, width: "100%", }} />
+        <Image source={require("../../Images/studentDashboard.png")} style={{ height: 300, width: "100%", marginTop: -20}} />
         <Text style={{
           fontSize: 30, color: '#00b8e6', fontWeight: 'bold', marginBottom: 20,
           textShadowColor: 'rgba(0, 0, 0, 0.75)',

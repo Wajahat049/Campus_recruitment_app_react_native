@@ -23,7 +23,7 @@ function Students(props) {
     <ScrollView style={{ backgroundColor: "white", paddingBottom: 30 }}>
 
       <View style={{ alignItems: 'center', justifyContent: 'center', }}>
-        <Image source={require("../../Images/studentDashboard.png")} style={{ height: 300, width: "100%", }} />
+        <Image source={require("../../Images/studentDashboard.png")} style={{ height: 300, width: "100%", marginTop: -20}} />
 
         <View>
           <Text style={{

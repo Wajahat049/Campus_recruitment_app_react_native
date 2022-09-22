@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,ImageBackground,StyleSheet,TouchableOpacity,Button} from 'react-native';
+import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from "../Components/Home"
@@ -28,36 +28,36 @@ import StudentRequest from "../Components/Apply-and_Hire/Student_Apply_to_job"
 
 
 const Stack = createStackNavigator();
-const Nav=()=> {
-    return(
-        <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
+const Nav = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Students" component={Students} />
-          <Stack.Screen name="Companies" component={Companies} />
-          <Stack.Screen name="Admin" component={Admin} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="AdminSignup" component={AdminSignup} />
-          <Stack.Screen name="AdminLogin" component={AdminLogin} />
-          <Stack.Screen name="StudentsLogin" component={StudentsLogin} />
-          <Stack.Screen name="CompaniesLogin" component={CompaniesLogin} />
-          <Stack.Screen name="StudentsSignup" component={StudentsSignup} />
-          <Stack.Screen name="CompaniesInfo" component={CompaniesInfo} />
-          <Stack.Screen name="CompaniesSignup" component={CompaniesSignup} />
-          <Stack.Screen name="StudentsInfo" component={StudentsInfo} />
-          <Stack.Screen name="StudentProfile" component={StudentProfile} />
-          <Stack.Screen name="CompaniesProfile" component={CompaniesProfile} />
-          <Stack.Screen name="CompanyHire" component={CompanyHire} />
-          <Stack.Screen name="StudentRequest" component={StudentRequest} />
-          <Stack.Screen name="AdminToggle" component={AdminToggle} />
-          <Stack.Screen name="Studenttoggle" component={Studenttoggle} />
-          <Stack.Screen name="Companytoggle" component={Companytoggle} />
+        <Stack.Screen name="Companies" component={Companies} />
+        <Stack.Screen name="Admin" component={Admin} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="AdminSignup" component={AdminSignup} />
+        <Stack.Screen name="AdminLogin" component={AdminLogin} />
+        <Stack.Screen name="StudentsLogin" component={StudentsLogin} />
+        <Stack.Screen name="CompaniesLogin" component={CompaniesLogin} />
+        <Stack.Screen name="StudentsSignup" component={StudentsSignup} />
+        <Stack.Screen name="CompaniesInfo" component={CompaniesInfo} />
+        <Stack.Screen name="CompaniesSignup" component={CompaniesSignup} />
+        <Stack.Screen name="StudentsInfo" component={StudentsInfo} />
+        <Stack.Screen name="StudentProfile" component={StudentProfile} />
+        <Stack.Screen name="CompaniesProfile" component={CompaniesProfile} />
+        <Stack.Screen name="CompanyHire" component={CompanyHire} />
+        <Stack.Screen name="StudentRequest" component={StudentRequest} />
+        <Stack.Screen name="AdminToggle" component={AdminToggle} />
+        <Stack.Screen name="Studenttoggle" component={Studenttoggle} />
+        <Stack.Screen name="Companytoggle" component={Companytoggle} />
 
 
 
-        </Stack.Navigator>
-      </NavigationContainer>
-    )
-    
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+
 }
 export default Nav;
