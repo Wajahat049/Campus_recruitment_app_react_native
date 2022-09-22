@@ -81,25 +81,24 @@ function CompaniesInfo(props) {
     console.log("element", element.item.Name)
     return (
       <>
-        <TouchableHighlight style={{ backgroundColor: "#00b8e6" }} key={index} onPress={() => onpressFunc(element.item)}>
+        <TouchableHighlight style={{ backgroundColor: "white" }} key={index} onPress={() => onpressFunc(element.item)}>
           <View>
-            <DataTable.Row style={{padding: 20, borderColor: "white", borderWidth: 1}}>
-              <DataTable.Cell >{element.item.Name}</DataTable.Cell>
-              <DataTable.Cell >{element.item.job}</DataTable.Cell>
-              <DataTable.Cell >{element.item.description}</DataTable.Cell>
-
+            <DataTable.Row style={{padding: 20, borderColor: "#00b8e6", borderWidth: 1}}>
+              <DataTable.Cell > <Text style={{color: "#00b8e6",}}> {element.item.Name} </Text> </DataTable.Cell>
+              <DataTable.Cell > <Text style={{color: "#00b8e6"}}> {element.item.job} </Text> </DataTable.Cell>
+              <DataTable.Cell > <Text style={{color: "#00b8e6",}}> {element.item.description} </Text> </DataTable.Cell>
             </DataTable.Row>
 
             <Portal>
               <Dialog style={{ backgroundColor: "white" }} visible={visible} onDismiss={hideDialog}>
                 <Dialog.Title style={{ fontSize: 25, fontWeight: "bold", color: "#00b8e6" }}>Company Information</Dialog.Title>
                 <Dialog.Content >
-                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Company Name : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.Name} </Text> </Paragraph>
-                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Email : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.email} </Text> </Paragraph>
-                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Job : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.job} </Text> </Paragraph>
-                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Experience : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.experience} </Text> </Paragraph>
-                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Salary : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.salary} </Text> </Paragraph>
-                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Description : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.description} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "gray" }}>Company Name : <Text style={{ fontWeight: "bold", color: "gray" }}> {theelement.Name} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "gray" }}>Email : <Text style={{ fontWeight: "bold", color: "gray" }}> {theelement.email} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "gray" }}>Job : <Text style={{ fontWeight: "bold", color: "gray" }}> {theelement.job} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "gray" }}>Experience : <Text style={{ fontWeight: "bold", color: "gray" }}> {theelement.experience} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "gray" }}>Salary : <Text style={{ fontWeight: "bold", color: "gray" }}> {theelement.salary} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "gray" }}>Description : <Text style={{ fontWeight: "bold", color: "gray" }}> {theelement.description} </Text> </Paragraph>
                 </Dialog.Content>
 
                 <Dialog.Actions style={{ justifyContent: "space-around", marginBottom: 20 }} >
@@ -127,10 +126,10 @@ function CompaniesInfo(props) {
   return (
     <Provider>
       <DataTable>
-        <DataTable.Header style={{ backgroundColor: "#00a3cc", borderColor: "#00a3cc", borderWidth: 2, }}>
-          <DataTable.Title >COMPANY</DataTable.Title>
-          <DataTable.Title >JOB</DataTable.Title>
-          <DataTable.Title >DESCRIPTION</DataTable.Title>
+        <DataTable.Header style={{ backgroundColor: "#00b8e6", borderColor: "#00b8e6", borderWidth: 2, }}>
+          <DataTable.Title> <Text style={{color: "white", fontWeight: "bold", fontSize: 14}}> COMPANY </Text> </DataTable.Title>
+          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 14}}> JOB </Text></DataTable.Title>
+          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 14}}> DESCRIPTION </Text></DataTable.Title>
         </DataTable.Header>
 
         <FlatList
