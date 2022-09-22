@@ -4,7 +4,7 @@ import {useRoute} from '@react-navigation/native';
 import { View, Text,TextInput,Alert,useWindowDimensions } from 'react-native';
 import AdminLogin from './AdminLogin';
 import AdminSignup from './AdminSignup';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabView, SceneMap,TabBar } from 'react-native-tab-view';
 
 
 const renderScene = ({ route, jumpTo }) => {
@@ -32,6 +32,7 @@ const AdminToggle = (props) => {
        renderScene={renderScene}
        onIndexChange={setIndex}
        initialLayout={{ width: layout.width }}
+       renderTabBar={props => <TabBar {...props} tabStyle={{backgroundColor:"#00b8e6"}} labelStyle={{color:"white",fontSize:18}} indicatorStyle={{backgroundColor: "white",padding: 2,marginBottom: -2}} />}
      />
     );
 };

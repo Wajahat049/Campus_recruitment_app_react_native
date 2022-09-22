@@ -1,5 +1,5 @@
 
-import React,{ useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import { View, Text, Button, TextInput,Image,ToastAndroid } from 'react-native';
 import database from "@react-native-firebase/database";
 import {changeisstudent} from "../../Store/action/index"
@@ -7,33 +7,28 @@ import {connect } from "react-redux"
 // import Students from "../Dashboard/Students"
 
 
-function StudentsLogin(props) {
-  const [name, setName] = useState("");
+function StudentsLogin({navigation}) {
+  const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [allstudents,setAllstudents]=useState([])
-  database().ref('/Students').once("value").then(snapshot=>{
-      setAllstudents( Object.values(snapshot.val()))
-  })
+
 
   const verify=()=>{
-  
-    for (var i=0;i<allstudents.length;i++){
-        if(allstudents[i].Name==name && allstudents[i].Pass==pass){
-            console.log("found Student")
-            props.changeisstudent(allstudents[i])
-            ToastAndroid.show("Login successfully",ToastAndroid.SHORT)
-            props.navigation.navigate("Students")
-            break
-        
-            
+    var id = email.split("@")
+    database().ref('/Students/'+id[0]+"gmail").once("value").then(snapshot=>{
+      if(snapshot.exists()){
+            if(pass==snapshot.val().Pass){
+              ToastAndroid.show("Successfully Login",ToastAndroid.SHORT)
+              navigation.navigate("Students")
+            }
+            else{
+              ToastAndroid.show("Wrong password",ToastAndroid.SHORT)
+            }
         }
         else{
-          ToastAndroid.show("Incorrect email or password",ToastAndroid.SHORT)
-
-          
+          ToastAndroid.show("Please Signup first",ToastAndroid.SHORT) 
         }
-  }
-
+})
 }
 
  
@@ -47,7 +42,7 @@ function StudentsLogin(props) {
         <Text style={{ fontSize: 50, color: '#00b8e6', fontWeight: 'bold' }}>Student Login</Text>
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 20 }}>
-        <TextInput value={name} onChangeText={(e) => setName(e)} placeholder="Name" />
+        <TextInput value={email} onChangeText={(e) => setEmail(e)} placeholder="Email" />
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 20 }}>
         <TextInput secureTextEntry={true} value={pass} onChangeText={(e) => setPass(e)} placeholder="Password" />
