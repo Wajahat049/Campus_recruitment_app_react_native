@@ -7,7 +7,7 @@ import {connect } from "react-redux"
 // import Students from "../Dashboard/Students"
 
 
-function StudentsLogin({navigation}) {
+function StudentsLogin(props) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [allstudents,setAllstudents]=useState([])
@@ -19,7 +19,8 @@ function StudentsLogin({navigation}) {
       if(snapshot.exists()){
             if(pass==snapshot.val().Pass){
               ToastAndroid.show("Successfully Login",ToastAndroid.SHORT)
-              navigation.navigate("Students")
+              props.changeisstudent(snapshot.val())
+              props.navigation.navigate("Students")
             }
             else{
               ToastAndroid.show("Wrong password",ToastAndroid.SHORT)

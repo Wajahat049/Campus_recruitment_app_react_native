@@ -37,20 +37,29 @@ function CompaniesInfo(props) {
   }
 
   global.DATA = []
-  var keyss = []
-  database().ref('/Companies').once("value").then(snapshot => {
-    var result = snapshot.val();
-    var keys = Object.entries(result)
-    for (var i = 0; i < keys.length; i++) {
-      var value = keys[i][1]
-      value.uid = keys[i][0]
-      keyss.push(value)
-    }
+
+  useEffect(() => {
+
+    var keyss = []
+    database().ref('/Companies').once("value").then(snapshot => {
+      var result = snapshot.val();
+      console.log("result", result)
+      var keys = Object.entries(result)
+      for (var i = 0; i < keys.length; i++) {
+        var value = keys[i][1]
+        value.uid = keys[i][0]
+        keyss.push(value)
+      }
+      setinfo(keyss)
+      console.log("keyss", keyss)
+    })
+
+  }, [])
 
 
-    setinfo(keyss)
-    // console.log(info)
-  })
+
+
+
 
   const onpressFunc = (element) => {
     settheelement(element)
@@ -59,66 +68,67 @@ function CompaniesInfo(props) {
   }
 
   const Apply = (element) => {
-    var email=props.Student.Email
-    var splitEmail=email.split("@")
-      database().ref('/Companies/' + element+"/Requests/"+splitEmail[0]).update(props.Student)
-      hideDialog()
-  
-      // database().ref('/Companies/Job_Hiring').push(element)
-  
-    }
+    var email = props.Student.Email
+    var splitEmail = email.split("@")
+    database().ref('/Companies/' + element + "/Requests/" + splitEmail[0]).update(props.Student)
+    hideDialog()
+
+    // database().ref('/Companies/Job_Hiring').push(element)
+
+  }
 
   const renderingItem = (element, index) => {
+    console.log("element", element.item.Name)
     return (
-      <TouchableHighlight key={index}  onPress={() => onpressFunc(element.item)}>
-        <View>
+      <>
+        <TouchableHighlight style={{ backgroundColor: "#00b8e6" }} key={index} onPress={() => onpressFunc(element.item)}>
+          <View>
+            <DataTable.Row style={{padding: 20, borderColor: "white", borderWidth: 1}}>
+              <DataTable.Cell >{element.item.Name}</DataTable.Cell>
+              <DataTable.Cell >{element.item.job}</DataTable.Cell>
+              <DataTable.Cell >{element.item.description}</DataTable.Cell>
 
-          <DataTable.Row style={{ backgroundColor: "white" }}>
-            <DataTable.Cell  >{element.item.Name}</DataTable.Cell>
-            <DataTable.Cell >{element.item.job}</DataTable.Cell>
-            <DataTable.Cell >{element.item.description}</DataTable.Cell>
+            </DataTable.Row>
 
-          </DataTable.Row>
-          <Portal>
-            <Dialog visible={visible} onDismiss={hideDialog}>
-              <Dialog.Title style={{ fontSize: 25, fontWeight: "bold", textDecorationLine: "underline" }}>Company Information</Dialog.Title>
-              <Dialog.Content  >
-                <Paragraph style={{ fontSize: 16 }}>Company Name:    {theelement.Name}</Paragraph>
-                <Paragraph style={{ fontSize: 16, }}>Email:   {theelement.Email}</Paragraph>
-                <Paragraph style={{ fontSize: 16, }}>Job: {theelement.job}</Paragraph>
-                <Paragraph style={{ fontSize: 16, }}>Experience:   {theelement.experience}</Paragraph>
-                <Paragraph style={{ fontSize: 16, }}>Salary:   {theelement.salary}</Paragraph>
-                <Paragraph style={{ fontSize: 16, }}>Description:   {theelement.description}</Paragraph>
+            <Portal>
+              <Dialog style={{ backgroundColor: "white" }} visible={visible} onDismiss={hideDialog}>
+                <Dialog.Title style={{ fontSize: 25, fontWeight: "bold", color: "#00b8e6" }}>Company Information</Dialog.Title>
+                <Dialog.Content >
+                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Company Name : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.Name} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Email : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.email} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Job : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.job} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Experience : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.experience} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Salary : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.salary} </Text> </Paragraph>
+                  <Paragraph style={{ fontSize: 16, color: "#00b8e6" }}>Description : <Text style={{ fontWeight: "bold", color: "#00b8e6" }}> {theelement.description} </Text> </Paragraph>
+                </Dialog.Content>
 
+                <Dialog.Actions style={{ justifyContent: "space-around", marginBottom: 20 }} >
+                  <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() => deleteInfo(theelement.uid)}>
+                    Delete
+                  </Button>
+                  <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() => Apply(theelement.uid)}>
+                    Apply
+                  </Button>
+                  <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={hideDialog}>
+                    Close
+                  </Button>
 
-
-              </Dialog.Content>
-              <Dialog.Actions style={{ justifyContent: "space-around" }} >
-                <Button mode="outlined" onPress={() => deleteInfo(theelement.uid)}>
-                  Delete
-                </Button>
-                <Button mode="outlined" onPress={() =>  Apply(theelement.uid) }>
-                  Apply
-                </Button>
-                <Button mode="outlined" onPress={hideDialog}>
-                  Close
-                </Button>
-
-              </Dialog.Actions>
-            </Dialog>
-          </Portal>
-        </View>
+                </Dialog.Actions>
+              </Dialog>
+            </Portal>
+          </View>
 
 
-      </TouchableHighlight>
+        </TouchableHighlight>
+      </>
 
     )
   }
   return (
     <Provider>
       <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>COMPANY</DataTable.Title>
+        <DataTable.Header style={{ backgroundColor: "#00a3cc", borderColor: "#00a3cc", borderWidth: 2, }}>
+          <DataTable.Title >COMPANY</DataTable.Title>
           <DataTable.Title >JOB</DataTable.Title>
           <DataTable.Title >DESCRIPTION</DataTable.Title>
         </DataTable.Header>
@@ -138,7 +148,7 @@ function CompaniesInfo(props) {
 function mapStateToProps(state) {
   return {
     User: state.User,
-    Student:state.Student
+    Student: state.Student
   }
 }
 

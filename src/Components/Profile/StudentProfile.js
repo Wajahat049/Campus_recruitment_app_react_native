@@ -19,8 +19,8 @@ function Profile(props) {
             <Text style={{ color: '#00b8e6', fontSize: 32, fontWeight: 'bold', textAlign: "center" }}> {(props.Student.Name)}</Text>
             <Text style={{ color: '#00b8e6', fontSize: 22, fontWeight: 'bold', margin: 3, textAlign: "center" }}> {(props.Student.Email)}</Text>
 
-            <View style={{ backgroundColor: "#00b8e6", marginTop: 35, paddingBottom: 100}}>
-                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15, marginTop: 10}}>Qualification :  {(props.Student.Qualification)}</Text>
+            <View style={{ backgroundColor: "#00b8e6", marginTop: 35, paddingBottom: 150}}>
+                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15, marginTop: 20}}>Qualification :  {(props.Student.Qualification)}</Text>
                 <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15}}>Field : {(props.Student.Field)}</Text>
                 <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15}}>Age :  {(props.Student.Age)}</Text>
             </View>
