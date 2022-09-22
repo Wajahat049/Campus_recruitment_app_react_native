@@ -50,6 +50,13 @@ function Companies(props) {
           </Text>
         </TouchableOpacity>
 
+        <TouchableOpacity style={styles.card} onPress={() => props.navigation.navigate("PostJob")} >
+          <Image source={require("../../Images/jobPost.png")} style={{ width: 60, height: 50, marginLeft: 20, margin: 5 }} />
+          <Text style={[styles.cardText]}>
+            Post Job 
+          </Text>
+        </TouchableOpacity>
+
         <View style={{ marginTop: 10, width: 150, marginBottom: 20 }}>
           <Button color="#00b8e6" style={{ fontSize: 30 }} onPress={() => Alert.alert(
             "Delete Student",
