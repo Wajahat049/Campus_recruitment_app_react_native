@@ -8,8 +8,8 @@ import Companies from "../Dashboard/Companies"
 
 
 
-function CompaniesLogin(props) {
-  const [name, setName] = useState("");
+function CompaniesLogin({navigation}) {
+  const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [allcompanies,setAllcompanies]=useState({})
 
@@ -18,20 +18,23 @@ function CompaniesLogin(props) {
   })
 
   const verify=()=>{
-    for (var i=0;i<allcompanies.length;i++){
-        if(allcompanies[i].pass==pass && allcompanies[i].Name==name){
-          props.changeiscompany(allcompanies[i])
-          console.log("found Comapny")
-          ToastAndroid.show("Login successfully",ToastAndroid.SHORT)
-          break
-           
+    var id = email.split("@")
+    database().ref('/Companies/'+id[0]+"gmail").once("value").then(snapshot=>{
+      if(snapshot.exists()){
+            if(pass==snapshot.val().pass){
+              ToastAndroid.show("Successfully Login",ToastAndroid.SHORT)
+              navigation.navigate("Companies")
+            }
+            else{
+              ToastAndroid.show("Wrong password",ToastAndroid.SHORT)
+            }
         }
         else{
-          ToastAndroid.show("Incorrect email or password",ToastAndroid.SHORT)
+          ToastAndroid.show("Please Signup first",ToastAndroid.SHORT) 
         }
-  }
+})
 }
-if(props.Company.Name==undefined){
+// if(props.Company.Name==undefined){
     return(
       <View style={{ alignItems: 'center', justifyContent: 'center' }}>
       <View style={{width:"100%"}}>
@@ -41,7 +44,7 @@ if(props.Company.Name==undefined){
         <Text style={{ fontSize: 50, color: '#00b8e6', fontWeight: 'bold' }}>Company Login</Text>
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 20 }}>
-        <TextInput value={name} onChangeText={(e) => setName(e)} placeholder="Name" />
+        <TextInput value={email} onChangeText={(e) => setEmail(e)} placeholder="Email" />
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 20 }}>
         <TextInput secureTextEntry={true} value={pass} onChangeText={(e) => setPass(e)} placeholder="Password" />
@@ -53,12 +56,12 @@ if(props.Company.Name==undefined){
       </View>
     )}
 
-    else{
-      return(
-      <Companies navigation={props.navigation}></Companies>
-      )
-    }
-}
+    // else{
+    //   return(
+    //   <Companies navigation={props.navigation}></Companies>
+    //   )
+    // }
+// }
  
     
 function mapStateToProps(state) {
