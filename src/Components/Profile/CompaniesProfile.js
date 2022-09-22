@@ -11,25 +11,21 @@ function Profile(props) {
 
         <View style={{ backgroundColor: "white", paddingBottom: 200 }}>
             <View style={[styles.triangleCorner]} />
-            <Image source={require("../../Images/companyProfile-avatar.png")} style={{ width: "60%", height: 220, marginLeft: 70, marginTop: -150, zIndex: 99 }} />
+            <Image source={require("../../Images/companyProfile-avatar.png")} style={{ width: "60%", height: 220, marginLeft: 70, marginTop: -150, }} />
             <Text style={{ color: '#00b8e6', fontSize: 32, fontWeight: 'bold', textAlign: "center" }}> {(props.Company.Name)} </Text>
             <Text style={{ color: '#00b8e6', fontSize: 22, fontWeight: 'bold', margin: 3, textAlign: "center" }}> {(props.Company.email)} </Text>
 
-            <View style={{ flexDirection: "row", backgroundColor: "#00b8e6", marginTop: 25, }}>
-                <Text style={{ color: 'white', fontSize: 22, margin: 15, marginLeft: 35 }}>Company : </Text>
-                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 15, marginLeft: 5, }}>{(props.Company.company)}</Text>
+            <View style={{ backgroundColor: "#00b8e6", marginTop: 35, paddingBottom: 100}}>
+                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15, marginTop: 20}}>Description : {(props.Company.companyDescrip)}</Text>
+                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15}}>Website Link :  {(props.Company.webLink)}</Text>
+                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15 }}>Contact Number : {(props.Company.phone)}</Text>
+                <Text style={{ color: 'white', fontSize: 22, margin: 5, fontWeight: "bold", marginLeft: 15 }}>Location :  {(props.Company.location)} </Text> 
+
+                {/* <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15}}>Position : {(props.Company.job)}</Text>
+                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15}}>Salary :  {(props.Company.salary)}</Text>
+                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15 }}>Experience : {(props.Company.experience)}</Text>
+                <Text style={{ color: 'white', fontSize: 22, margin: 5, fontWeight: "bold", marginLeft: 15 }}>Description :  {(props.Company.description)} </Text>  */}
             </View>
-
-
-            <View style={{ flexDirection: "row", }}>
-                <Text style={{ color: '#00b8e6', fontSize: 22, fontWeight: 'bold', margin: 25, borderRightWidth: 3, borderColor: "#00b8e6" }}> {(props.Company.job)}</Text>
-                <Text style={{ color: '#00b8e6', fontSize: 22, fontWeight: 'bold', margin: 25, borderRightWidth: 3, borderColor: "#00b8e6" }}> {(props.Company.salary)}</Text>
-                <Text style={{ color: '#00b8e6', fontSize: 22, fontWeight: 'bold', margin: 25 }}>{(props.Company.experience)}</Text>
-            </View>
-
-
-            <Text style={{ color: '#00b8e6', fontSize: 22, margin: 3, marginLeft: 10}}>Description : <Text style={{fontWeight: "bold"}}> {(props.Company.description)} </Text> </Text>
-
         </View>
     );
 }
