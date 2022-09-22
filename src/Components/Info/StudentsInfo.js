@@ -113,9 +113,9 @@ function StudentsInfo(props) {
     <Provider>
       <DataTable>
         <DataTable.Header style={{ backgroundColor: "#00b8e6", borderColor: "#00b8e6", borderWidth: 2, }}>
-          <DataTable.Title> <Text style={{color: "white", fontWeight: "bold", fontSize: 14}}> Name </Text> </DataTable.Title>
-          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 14}}> Age </Text> </DataTable.Title>
-          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 14}}> Qualification </Text> </DataTable.Title>
+          <DataTable.Title> <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Name </Text> </DataTable.Title>
+          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Age </Text> </DataTable.Title>
+          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Qualification </Text> </DataTable.Title>
         </DataTable.Header>
         <FlatList
 
