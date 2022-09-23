@@ -5,17 +5,16 @@ import database from "@react-native-firebase/database";
 import {changeiscompany} from "../../Store/action/index"
 import {connect } from "react-redux"
 import Companies from "../Dashboard/Companies"
+import { useEffect } from 'react';
 
 
 
-function CompaniesLogin({navigation}) {
+function CompaniesLogin({navigation},props) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [allcompanies,setAllcompanies]=useState({})
 
-  database().ref('/Companies').once("value").then(snapshot=>{
-    setAllcompanies( Object.values(snapshot.val()))
-  })
+
 
   const verify=()=>{
     var id = email.split("@")
@@ -23,6 +22,7 @@ function CompaniesLogin({navigation}) {
       if(snapshot.exists()){
             if(pass==snapshot.val().pass){
               ToastAndroid.show("Successfully Login",ToastAndroid.SHORT)
+              props.changeiscompany(snapshot.val())
               navigation.navigate("Companies")
             }
             else{
@@ -41,7 +41,7 @@ function CompaniesLogin({navigation}) {
         <Image style={{width:"60%",height:200,alignSelf:"center"}} source={require("../../Images/log-in.png")}/>
       </View>
       <View>
-        <Text style={{ fontSize: 50, color: '#00b8e6', fontWeight: 'bold' }}>Company Login</Text>
+        <Text style={{ fontSize: 50, color: '#00b8e6', fontWeight: 'bold' }}>Login</Text>
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 20 }}>
         <TextInput value={email} onChangeText={(e) => setEmail(e)} placeholder="Email" />

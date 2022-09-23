@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Button, TextInput,Image } from 'react-native';
+import { View, Text, Button, TextInput,Image,ScrollView } from 'react-native';
 import database from "@react-native-firebase/database";
 import { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -11,55 +11,55 @@ function CompaniesSignUp(props) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [company, setCompany] = useState("");
-  const [job, setJob] = useState("");
-  const [salary, setSalary] = useState("");
+  const [contact, setContact] = useState("");
+  const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [experience, setExperience] = useState("");
+  const [website, setWebsite] = useState("");
 
   // database().ref(`/Companies/company1gmail`).update({ Name:"Company1", email:"Company1@gmial.com", pass:"Comp1", job:"Developer", salary:50000, description:"good web developer", experience:"1 year" })
   // database().ref(`/Companies/company2gmail`).update({ Name:"Company2", email:"Company2@gmial.com", pass:"Comp2", job:"Developer", salary:60000, description:"good web developer", experience:"1 year" })
   // database().ref(`/Companies/company3gmail`).update({ Name:"Company3", email:"Company3@gmial.com", pass:"Comp3", job:"Developer", salary:70000, description:"good web developer", experience:"1 year" })
   // database().ref(`/Companies/company4gmail`).update({ Name:"Company4", email:"Company4@gmial.com", pass:"Comp4", job:"Developer", salary:80000, description:"good web developer", experience:"1 year" })
   // database().ref(`/Companies/company5gmail`).update({ Name:"Company5", email:"Company5@gmial.com", pass:"Comp5", job:"Developer", salary:90000, description:"good web developer", experience:"1 year" })
-
+  //description, webiste, contact, location
 
   const save_data = () => {
-    var emailSplit=Email.split("@")
+    var emailSplit=email.split("@")
 
-    database().ref(`/Companies/${emailSplit[0]}`).update({ Name, email, pass, job, salary, description, experience })
+    database().ref(`/Companies/${emailSplit[0]}`).update({ Name, email, pass, contact, location, description, website })
     
   props.navigation.navigate("CompaniesLogin")
 
   }
 
   return (
-    <View style={{ alignItems: 'center', justifyContent: 'center',marginBottom:"75%",marginTop:"20%"}}>
+    <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center',paddingBottom:"20%"}}>
     <View style={{width:"100%"}}>
       <Image style={{width:"60%",height:200,alignSelf:"center"}} source={require("../../Images/sign-up.png")}/>
     </View>
         <View>
           <Text style={{ fontSize: 40, color: '#00b8e6', fontWeight: 'bold', bottom:11 }}>SignUp</Text>
         </View>
-        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 1 }}>
+        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 5 }}>
           <TextInput value={Name} onChangeText={(e) => setName(e)} placeholder="Company Name" />
         </View>
-        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 1 }}>
+        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 5 }}>
           <TextInput value={email} keyboardType={"email-address"} onChangeText={(e) => setEmail(e)} placeholder="Email" />
         </View>
-        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 1 }}>
+        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 5 }}>
           <TextInput secureTextEntry={true} value={pass} onChangeText={(e) => setPass(e)} placeholder="Password" />
         </View>
-        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 1 }}>
-          <TextInput value={job} onChangeText={(e) => setJob(e)} placeholder="Job Name" />
+        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 5 }}>
+          <TextInput keyboardType="phone-pad" value={contact} onChangeText={(e) => setContact(e)} placeholder="Contact" />
         </View>
-        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 1 }}>
+        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 5 }}>
           <TextInput value={description} onChangeText={(e) => setDescription(e)} placeholder="Job Description" />
         </View>
-        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 1 }}>
-          <TextInput value={salary} onChangeText={(e) => setSalary(e)} placeholder="Salary" />
+        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 5 }}>
+          <TextInput value={location} onChangeText={(e) => setLocation(e)} placeholder="Location" />
         </View>
-        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 1 }}>
-          <TextInput value={experience} onChangeText={(e) => setExperience(e)} placeholder="Experience" />
+        <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 5 }}>
+          <TextInput keyboardType="url" value={website} onChangeText={(e) => setWebsite(e)} placeholder="Website" />
         </View>
         <View>
           <View style={{ width: 150 }}>
@@ -67,7 +67,7 @@ function CompaniesSignUp(props) {
           </View>
         </View>
 
-      </View>
+      </ScrollView>
   );
 }
 

@@ -35,6 +35,9 @@ function AdminLogin(props) {
       props.changeisuser("Admin")
       props.navigation.navigate("Admin")
     }
+    else{
+      ToastAndroid.show("Wrong name or password",ToastAndroid.SHORT)
+    }
 })}
 
     
