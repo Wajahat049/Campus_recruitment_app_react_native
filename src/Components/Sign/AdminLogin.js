@@ -11,26 +11,14 @@ import Admin from "../Dashboard/Admin"
 
 function AdminLogin(props) {
 
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
-
-  // console.log("jajsdj")
-
-  // useEffect(()=>{
-  //   // console.log("DATA",database().ref("/Admin/user").once("value"))
-  //   database().ref('/Admin/user').once('value').then(snapshot => {
-  //     const check=snapshot.val()
-  //     console.log("AD",snapshot.val())
-  //   }).catch((err)=>{
-  //     console.log("ERR",err)
-  //   })
-  // },[])
 
   const verify=()=>{
     database().ref('/Admin/user').once('value').then(snapshot => {
     const check=snapshot.val()
     console.log("AD",check)
-    if(check.name===name && check.pass===pass){
+    if(check.email===email && check.pass===pass){
       ToastAndroid.show("You are the Admin",ToastAndroid.SHORT)
       props.changeisuser("Admin")
       props.navigation.navigate("Admin")
@@ -47,7 +35,7 @@ function AdminLogin(props) {
         <Text style={{ fontSize: 50, color: '#00b8e6', fontWeight: 'bold' }}>Login</Text>
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 20 }}>
-        <TextInput value={name} onChangeText={(e) => setName(e)} placeholder="Name" />
+        <TextInput value={email} onChangeText={(e) => setEmail(e)} placeholder="Email" />
       </View>
       <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "80%", margin: 20 }}>
         <TextInput secureTextEntry={true} value={pass} onChangeText={(e) => setPass(e)} placeholder="Password" />

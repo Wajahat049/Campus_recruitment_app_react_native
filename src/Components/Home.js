@@ -6,13 +6,13 @@ const Home = (props) => {
   <View style={styles.container}>
     <ImageBackground source={{ uri: "https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-recruitment-looking-for-a-bull-poster-background-image_200940.jpg"}} style={styles.image}>
     <Text style={{color:'white', fontWeight: 'bold', fontSize:55, textAlign:'center', bottom:'18%',textShadowColor:"deepskyblue",textShadowRadius:25}}>Campus Recruitment System</Text>
-    <TouchableOpacity style={{borderColor: "#00b8e6", borderWidth: 2, width: 150, borderRadius: 10, marginLeft: 100, marginBottom: 15}} onPress={()=>props.navigation.navigate("AdminToggle")}>
+    <TouchableOpacity style={{borderColor: "#00b8e6", borderWidth: 3, width: 150, borderRadius: 10, marginLeft: 100, marginBottom: 15}} onPress={()=>props.navigation.navigate("AdminToggle")}>
     <Text style={styles.text}>Admin</Text>
     </TouchableOpacity>
-    <TouchableOpacity style={{borderColor: "#00b8e6", borderWidth: 2, width: 160, borderRadius: 10, marginLeft: 95, marginBottom: 15}} onPress={()=>props.navigation.navigate("Studenttoggle")}>
+    <TouchableOpacity style={{borderColor: "#00b8e6", borderWidth: 3, width: 160, borderRadius: 10, marginLeft: 95, marginBottom: 15}} onPress={()=>props.navigation.navigate("Studenttoggle")}>
     <Text  style={styles.text}>Student</Text>
     </TouchableOpacity>
-    <TouchableOpacity style={{borderColor: "#00b8e6", borderWidth: 2, width: 200, borderRadius: 10, marginLeft: 75, marginBottom: 20}} onPress={()=>props.navigation.navigate("Companytoggle")}>
+    <TouchableOpacity style={{borderColor: "#00b8e6", borderWidth: 3, width: 200, borderRadius: 10, marginLeft: 75, marginBottom: 20}} onPress={()=>props.navigation.navigate("Companytoggle")}>
     <Text  style={styles.text}>Company</Text>
     </TouchableOpacity>
     </ImageBackground>
