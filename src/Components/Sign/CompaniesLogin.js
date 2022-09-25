@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 
 
-function CompaniesLogin({navigation},props) {
+function CompaniesLogin({navigation,changeiscompany}) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [allcompanies,setAllcompanies]=useState({})
@@ -17,12 +17,13 @@ function CompaniesLogin({navigation},props) {
 
 
   const verify=()=>{
+    console.log("PROPS",changeiscompany)
     var id = email.split("@")
     database().ref('/Companies/'+id[0]+"gmail").once("value").then(snapshot=>{
       if(snapshot.exists()){
             if(pass==snapshot.val().pass){
               ToastAndroid.show("Successfully Login",ToastAndroid.SHORT)
-              props.changeiscompany(snapshot.val())
+              changeiscompany(snapshot.val())
               navigation.navigate("Companies")
             }
             else{
