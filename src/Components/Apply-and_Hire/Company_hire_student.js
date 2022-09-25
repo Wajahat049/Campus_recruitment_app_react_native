@@ -39,9 +39,6 @@ function Company_hire_student(props) {
     )
   }, [])
 
-
-
-
   return (
     <>
       <FlatList
