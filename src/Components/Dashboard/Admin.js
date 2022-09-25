@@ -16,11 +16,11 @@ const Admin = (props) => {
   return (
     <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: "white", paddingBottom: 150 }}>
 
-      <Image source={require("../../Images/studentDashboard.png")} style={{ height: 200, width: "100%", marginTop: 30 }} />
+      <Image source={require("../../Images/studentDashboard.png")} style={{ height: 300, width: "100%", marginTop: 30 }} />
 
       <View>
         <Text style={{
-          fontSize: 32, color: '#00b8e6', fontWeight: 'bold', marginBottom: 50,
+          fontSize: 32, color: '#00b8e6', fontWeight: 'bold', marginBottom: 30, marginTop: -30,
           textShadowColor: 'rgba(0, 0, 0, 0.75)',
           textShadowOffset: { width: -1, height: 1 },
           textShadowRadius: 2

@@ -64,37 +64,35 @@ function StudentsInfo(props) {
 
     return (
 
-      <TouchableHighlight key={element.index} onPress={() => onpressFunc(element.item)}>
+      <TouchableHighlight style={{ backgroundColor: "white" }} key={element.index} onPress={() => onpressFunc(element.item)}>
         <View>
-          <DataTable.Row style={{ backgroundColor: "white" }}>
-            <DataTable.Cell  >{element.item.Name}</DataTable.Cell>
-            <DataTable.Cell >{element.item.Age}</DataTable.Cell>
-
-            <DataTable.Cell >{element.item.Qualification}</DataTable.Cell>
-
+          <DataTable.Row style={{padding: 20, borderColor: "#00b8e6", borderWidth: 1}}>
+            <DataTable.Cell  > <Text style={{color: "#00b8e6",}}> {element.item.Name} </Text> </DataTable.Cell>
+            <DataTable.Cell > <Text style={{color: "#00b8e6",}}> {element.item.Age} </Text> </DataTable.Cell>
+            <DataTable.Cell > <Text style={{color: "#00b8e6",}}> {element.item.Qualification} </Text> </DataTable.Cell>
           </DataTable.Row>
+
           <Portal >
-            <Dialog visible={visible} onDismiss={hideDialog} >
-              <Dialog.Title style={{ fontSize: 25, fontWeight: "bold", textDecorationLine: "underline" }}>Student Information</Dialog.Title>
+            <Dialog style={{ backgroundColor: "white" }} visible={visible} onDismiss={hideDialog} >
+              <Dialog.Title style={{ fontSize: 25, fontWeight: "bold", color: "#00b8e6" }}>Student Information</Dialog.Title>
               <Dialog.Content >
-                <Paragraph style={{ fontSize: 16 }}>Name:    {theelement.Name}</Paragraph>
-                <Paragraph style={{ fontSize: 16 }}>Email:   {theelement.Email}</Paragraph>
-                <Paragraph style={{ fontSize: 16 }}>Age: {theelement.Age}</Paragraph>
-                <Paragraph style={{ fontSize: 16 }}>Qualification:   {theelement.Qualification}</Paragraph>
-                <Paragraph style={{ fontSize: 16 }}>Field:   {theelement.Field}</Paragraph>
-
-
+                <Paragraph style={{ fontSize: 16, color: "gray" }}>Name : <Text style={{ fontWeight: "bold", color: "gray" }}>  {theelement.Name} </Text> </Paragraph>
+                <Paragraph style={{ fontSize: 16, color: "gray" }}>Email : <Text style={{ fontWeight: "bold", color: "gray" }}>  {theelement.Email} </Text> </Paragraph>
+                <Paragraph style={{ fontSize: 16, color: "gray" }}>Age : <Text style={{ fontWeight: "bold", color: "gray" }}> {theelement.Age} </Text> </Paragraph>
+                <Paragraph style={{ fontSize: 16, color: "gray" }}>Qualification :  <Text style={{ fontWeight: "bold", color: "gray" }}> {theelement.Qualification} </Text> </Paragraph>
+                <Paragraph style={{ fontSize: 16, color: "gray" }}>Field : <Text style={{ fontWeight: "bold", color: "gray" }}>  {theelement.Field} </Text> </Paragraph>
               </Dialog.Content>
-              <Dialog.Actions style={{ justifyContent: "space-around" }} >
+
+              <Dialog.Actions style={{ justifyContent: "space-around", marginBottom: 20  }} >
                 {props.User == "Admin" ?
-                  <Button mode="outlined" onPress={() => deleteInfo(theelement.uid)}>
+                  <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() => deleteInfo(theelement.uid)}>
                     Delete
                   </Button> : <View></View>}
 
-                <Button mode="outlined" onPress={() =>  Hire(theelement.uid) }>
+                <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() =>  Hire(theelement.uid) }>
                   Hire
                 </Button>
-                <Button mode="outlined" onPress={hideDialog}>
+                <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={hideDialog}>
                   Close
                 </Button>
 
@@ -114,10 +112,10 @@ function StudentsInfo(props) {
   return (
     <Provider>
       <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>Name</DataTable.Title>
-          <DataTable.Title >Age</DataTable.Title>
-          <DataTable.Title >Qualification</DataTable.Title>
+        <DataTable.Header style={{ backgroundColor: "#00b8e6", borderColor: "#00b8e6", borderWidth: 2, }}>
+          <DataTable.Title> <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Name </Text> </DataTable.Title>
+          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Age </Text> </DataTable.Title>
+          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Qualification </Text> </DataTable.Title>
         </DataTable.Header>
         <FlatList
 
