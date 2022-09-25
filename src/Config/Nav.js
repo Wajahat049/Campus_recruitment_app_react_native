@@ -22,6 +22,7 @@ import StudentProfile from "../Components/Profile/StudentProfile"
 import CompaniesProfile from "../Components/Profile/CompaniesProfile"
 import CompanyHire from "../Components/Apply-and_Hire/Company_hire_student"
 import StudentRequest from "../Components/Apply-and_Hire/Student_Apply_to_job"
+import JobPost from '../Components/JobPost/JobPost';
 
 
 
@@ -52,6 +53,8 @@ const Nav = () => {
         <Stack.Screen name="AdminToggle" component={AdminToggle} />
         <Stack.Screen name="Studenttoggle" component={Studenttoggle} />
         <Stack.Screen name="Companytoggle" component={Companytoggle} />
+        <Stack.Screen name="JobPost" component={JobPost} />
+
 
 
 

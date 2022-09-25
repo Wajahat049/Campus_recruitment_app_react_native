@@ -34,6 +34,9 @@ function StudentsInfo(props) {
 
   global.DATA = []
   var keyss = []
+
+  useEffect(()=>{
+
   database().ref('/Students').once("value").then(snapshot => {
     var result = snapshot.val();
     var keys = Object.entries(result)
@@ -42,6 +45,7 @@ function StudentsInfo(props) {
       value.uid = keys[i][0]
       keyss.push(value)
     }
+  },[])
 
     setinfo(keyss)
   })

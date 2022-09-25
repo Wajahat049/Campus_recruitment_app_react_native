@@ -49,12 +49,12 @@ function Students(props) {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={() => props.navigation.navigate("CompanyHire")} >
+        {/* <TouchableOpacity style={styles.card} onPress={() => props.navigation.navigate("CompanyHire")} >
           <Image source={require("../../Images/company-hire.png")} style={styles.cardImg} />
           <Text style={styles.cardText}>
             Company Hiring
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <View style={{ marginTop: 10, width: 150, marginBottom: 20 }}>
           <Button color="#00b8e6" style={{ fontSize: 30 }} onPress={() => Alert.alert(

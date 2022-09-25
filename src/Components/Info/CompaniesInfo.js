@@ -39,6 +39,7 @@ function CompaniesInfo(props) {
   global.DATA = []
 
   useEffect(() => {
+    console.log("USER",props.User)
 
     var keyss = []
     database().ref('/Companies').once("value").then(snapshot => {
@@ -80,7 +81,6 @@ function CompaniesInfo(props) {
   const renderingItem = (element, index) => {
     console.log("element", element.item.Name)
     return (
-      <>
         <TouchableHighlight style={{ backgroundColor: "white" }} key={index} onPress={() => onpressFunc(element.item)}>
           <View>
             <DataTable.Row style={{padding: 20, borderColor: "#00b8e6", borderWidth: 1}}>
@@ -89,7 +89,7 @@ function CompaniesInfo(props) {
               <DataTable.Cell > <Text style={{color: "#00b8e6",}}> {element.item.description} </Text> </DataTable.Cell>
             </DataTable.Row>
 
-            <Portal>
+            <Portal> 
               <Dialog style={{ backgroundColor: "white" }} visible={visible} onDismiss={hideDialog}>
                 <Dialog.Title style={{ fontSize: 25, fontWeight: "bold", color: "#00b8e6" }}>Company Information</Dialog.Title>
                 <Dialog.Content >
@@ -102,9 +102,12 @@ function CompaniesInfo(props) {
                 </Dialog.Content>
 
                 <Dialog.Actions style={{ justifyContent: "space-around", marginBottom: 20 }} >
+                  {props.User=="Admin"?
                   <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() => deleteInfo(theelement.uid)}>
                     Delete
                   </Button>
+                    :null
+                  }
                   <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() => Apply(theelement.uid)}>
                     Apply
                   </Button>
@@ -119,7 +122,7 @@ function CompaniesInfo(props) {
 
 
         </TouchableHighlight>
-      </>
+    
 
     )
   }
@@ -135,7 +138,7 @@ function CompaniesInfo(props) {
         <FlatList
           data={info}
           renderItem={renderingItem}
-          keyExtractor={element => element.Email}
+          keyExtractor={element => element.email}
 
         />
       </DataTable>
