@@ -50,7 +50,7 @@ function Companies(props) {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={() => props.navigation.navigate("PostJob")} >
+        <TouchableOpacity style={styles.card} onPress={() => props.navigation.navigate("JobPost")} >
           <Image source={require("../../Images/jobPost.png")} style={{ width: 60, height: 50, marginLeft: 20, margin: 5 }} />
           <Text style={[styles.cardText]}>
             Post Job 

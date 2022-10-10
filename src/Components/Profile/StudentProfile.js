@@ -19,10 +19,24 @@ function Profile(props) {
             <Text style={{ color: '#00b8e6', fontSize: 32, fontWeight: 'bold', textAlign: "center" }}> {(props.Student.Name)}</Text>
             <Text style={{ color: '#00b8e6', fontSize: 22, fontWeight: 'bold', margin: 3, textAlign: "center" }}> {(props.Student.Email)}</Text>
 
-            <View style={{ backgroundColor: "#00b8e6", marginTop: 35, paddingBottom: 150}}>
-                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15, marginTop: 20}}>Qualification :  {(props.Student.Qualification)}</Text>
-                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15}}>Field : {(props.Student.Field)}</Text>
-                <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold', margin: 5, marginLeft: 15}}>Age :  {(props.Student.Age)}</Text>
+
+            <View style={{ backgroundColor: "#00b8e6", marginTop: 20, paddingBottom: 100, borderTopRightRadius: 20, borderTopLeftRadius: 20, paddingRight: 50, paddingLeft: 10 }}>
+                <View style={{ margin: 5, marginTop: 20, flexDirection: "row" }}>
+                    <Image style={{ width: 40, height: 40, marginRight: 15, }} source={{ uri: ("https://cdn-icons-png.flaticon.com/512/4011/4011160.png") }} />
+                    <Text style={{ color: 'white', fontSize: 18, fontWeight: "bold", marginTop: 8 }}>{(props.Student.Qualification)}</Text>
+                </View>
+                <View style={{ margin: 5, marginTop: 10, flexDirection: "row" }}>
+                    <Image style={{ width: 40, height: 40, marginRight: 15 }} source={{ uri: ("https://cdn-icons-png.flaticon.com/512/2966/2966773.png") }} />
+                    <Text style={{ color: 'white', fontSize: 18, fontWeight: "bold", marginTop: 8 }}>{(props.Student.Field)}</Text>
+                </View>
+                <View style={{ margin: 5, marginTop: 10, flexDirection: "row" }}>
+                    <Image style={{ width: 40, height: 40, marginRight: 15 }} source={{ uri: ("https://cdn-icons-png.flaticon.com/512/1257/1257309.png?w=360&t=st=1664095339~exp=1664095939~hmac=1dbdb9ba0f94ffd60f6e61b22d4d4653d7806c71a9c735b56a7ee971fbc3ff63") }} />
+                    <Text style={{ color: 'white', fontSize: 18, fontWeight: "bold", marginTop: 8 }}>03112536783</Text>
+                </View>
+                <View style={{ margin: 5, marginTop: 10, flexDirection: "row" }}>
+                    <Image style={{ width: 40, height: 40, marginRight: 15 }} source={{ uri: ("https://cdn-icons-png.flaticon.com/512/5670/5670791.png") }} />
+                    <Text style={{ color: 'white', fontSize: 18, fontWeight: "bold", marginTop: 8 }}>{(props.Student.Age)}</Text>
+                </View>
             </View>
 
         </View>

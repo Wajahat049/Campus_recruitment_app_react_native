@@ -45,15 +45,14 @@ function StudentsInfo(props) {
       value.uid = keys[i][0]
       keyss.push(value)
     }
-  })
-
     setinfo(keyss)
+  })
   },[])
 
   const Hire = (element) => {
   var email=props.Company.email
   var splitEmail=email.split("@")
-    database().ref('/Student/' + element+"/Offers/"+splitEmail[0]).update(props.Company)
+    database().ref('/Students/' + element+"/Offers/"+splitEmail[0]).update(props.Company)
     hideDialog()
 
   }
