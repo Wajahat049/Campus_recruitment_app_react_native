@@ -74,7 +74,18 @@ function CompaniesInfo(props) {
     database().ref('/Companies/' + element + "/Requests/" + splitEmail[0]).update(props.Student)
     hideDialog()
 
-    // database().ref('/Companies/Job_Hiring').push(element)
+    // database().ref(`/JobRequests/${emailSplit[0]}gmail/Requests`).push().set({
+    //     jobTile: "Aleezah",
+    //     jobDescription: "aleezah@gmail.com",
+    //     jobExperience: 50000,
+    //     jobSalary: "React developer and have a knowledge of Node js, html, css, javascript, firebase and MySQL",
+    //     jobType: "2 Years",
+    //     jobTiming : "React developer",
+    // jobTechnologies,
+    // name,
+    // email,
+    //   })
+    //   .then(() => console.log('Data updated.'));
 
   }
 

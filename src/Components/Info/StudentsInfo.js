@@ -45,10 +45,10 @@ function StudentsInfo(props) {
       value.uid = keys[i][0]
       keyss.push(value)
     }
-  },[])
+  })
 
     setinfo(keyss)
-  })
+  },[])
 
   const Hire = (element) => {
   var email=props.Company.email

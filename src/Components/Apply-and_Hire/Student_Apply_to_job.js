@@ -48,7 +48,6 @@ function Student_apply_to_job(props) {
       <FlatList
         data={info}
         renderItem={(ele) => {
-          console.log("ele", ele)
           if (ele != []) {
             return (
               <>
