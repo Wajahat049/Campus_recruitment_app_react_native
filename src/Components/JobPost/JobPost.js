@@ -1,24 +1,74 @@
 
 
 
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View, Text, Button, TextInput, Alert, StyleSheet,
   Image,
   TouchableOpacity,
 } from 'react-native';
 import { connect } from "react-redux"
-import { ScrollView } from 'react-native-gesture-handler';
-
+import { ScrollView, } from 'react-native-gesture-handler';
+import database from "@react-native-firebase/database";
 
 function JobPost(props) {
 
+  // states
+  const [jobTitle, setJobTitle] = useState("")
+  const [jobDescription, setJobDescription] = useState("")
+  const [jobExperience, setJobExperience] = useState("")
+  const [jobSalary, setJobSalary] = useState("")
+  const [jobType, setJobType] = useState("")
+  const [jobTiming, setJobTiming] = useState("")
+  const [jobTechnologies, setJobTechnologies] = useState("")
+
+  const postJob = () => {
+    database().ref(`/Jobs`).push().set({
+        jobTitle,
+        jobDescription,
+        jobExperience,
+        jobSalary,
+        jobType,
+        jobTiming,
+        jobTechnologies
+      })
+      .then(() => console.log('Job post successfully.'));
+  }
 
   return (
 
     <ScrollView style={{ backgroundColor: "white", paddingBottom: 30 }}>
 
-      <Image style={{width:"50%",height:50,alignSelf:"center"}} source={{uri:("https://img.freepik.com/free-vector/job-vacancy-background-with-chair-flat-style_23-2147875408.jpg?w=360&t=st=1664126092~exp=1664126692~hmac=e0ce24b1ec0772afd8f242b33fa0ab6addc42b135edcf0d36c6599d389fce04d")}}/>
+      <Image style={{ width: "50%", height: 200, alignSelf: "center", }} source={require("../../Images/jobPostImg.png")} />
+
+      <View>
+        <Text style={{ fontSize: 50, color: '#00b8e6', fontWeight: 'bold', textAlign: "center" }}>JOB POST</Text>
+      </View>
+
+      <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "90%", margin: 20 }}>
+        <TextInput onChangeText={(e) => setJobTitle(e)} placeholder="JobTitle" />
+      </View>
+      <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "90%", margin: 20 }}>
+        <TextInput onChangeText={(e) => setJobDescription(e)} placeholder="Job Description" />
+      </View>
+      <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "90%", margin: 20 }}>
+        <TextInput onChangeText={(e) => setJobExperience(e)} placeholder="Experience" />
+      </View>
+      <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "90%", margin: 20 }}>
+        <TextInput onChangeText={(e) => setJobSalary(e)} placeholder="Salary" />
+      </View>
+      <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "90%", margin: 20 }}>
+        <TextInput onChangeText={(e) => setJobType(e)} placeholder="Job Type" />
+      </View>
+      <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "90%", margin: 20 }}>
+        <TextInput onChangeText={(e) => setJobTiming(e)} placeholder="Timings" />
+      </View>
+      <View style={{ borderWidth: 3, borderColor: "#00b8e6", width: "90%", margin: 20, }}>
+        <TextInput onChangeText={(e) => setJobTechnologies(e)} placeholder="Technologies" />
+      </View>
+      <View style={{ margin: 20, width: 110, marginBottom: 50, }}>
+        <Button color="#00b8e6" onPress={() => postJob()} title="Submit"></Button>
+      </View>
 
     </ScrollView>
   );
@@ -76,4 +126,4 @@ const styles = StyleSheet.create({
 })
 
 
-// jobTile, jobDescription, jobExperience, jobSalary, jobType, jobTiming, jobTechnologies
+// jobTitle, jobDescription, jobExperience, jobSalary, jobType, jobTiming, jobTechnologies
