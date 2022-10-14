@@ -38,7 +38,7 @@ In students information, admin can see a table which have student's name, email 
 
 2. **Student Dashboard**
 
-After successfully login. Student can easily access there own profile and company's information.
+After successfully login. Student can easily access there own profile, All jobs and company's information.
 
 3. **Companies Information**
 
@@ -46,4 +46,32 @@ In companies information, student can see a table which have company's name, ema
 
 4. **Student Profile**
 
-In student profile, he/she can see her/him own profile or information like qualification, fiel, phone number or age etc.
+In student profile, he/she can see her/him own profile or information like qualification, field, phone number or age etc.
+
+5. **All Jobs**
+
+This screen shows all the jobs which are offer to the student. Student can easily apply any job by click an apply's button. After click a button, request will send to the company.
+
+
+## COMPANY
+
+1. **Login/Signup**
+
+ When user click the Student button then in navigates to login/signup toggle of the admin. After Signin, proceeds to the next activity.
+
+2. **Student Dashboard**
+
+After successfully login. Student can easily access there own profile, All jobs and company's information.
+
+3. **Companies Information**
+
+In companies information, student can see a table which have company's name, email and location. When he/she click or touch any row then a modal of company's information shows which is very helpful for the student
+
+4. **Student Profile**
+
+In student profile, he/she can see her/him own profile or information like qualification, field, phone number or age etc.
+
+5. **All Jobs**
+
+This screen shows all the jobs which are offer to the student. Student can easily apply any job by click an apply's button. After click a button, request will send to the company.
+
