@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View, Text, ScrollView, TouchableHighlight, Alert, FlatList } from 'react-native';
-// import {SearchBar,Icon} from "react-native-elements";
 import { useState, useEffect } from 'react';
 import database from "@react-native-firebase/database";
 import { connect } from "react-redux"
@@ -16,16 +15,6 @@ function Company_hire_student(props) {
   var emailSplit = email.split("@")
 
   useEffect(() => {
-
-    // database().ref(`/Students/${emailSplit[0]}gmail/Offers`).push().set({
-    //     Name: "Systems and limit",
-    //     Email: "systemlimit@gmail.com",
-    //     salary: 100000,
-    //     description: "React developer and have a knowledge of Node js, html, css, javascript, firebase and MySQL",
-    //     experience: "5 Years",
-    //     job : "React developer"
-    //   })
-    //   .then(() => console.log('Data updated.'));
 
 
     database().ref(`/Students/${emailSplit[0]}gmail/Offers`).once("value").then(snapshot => {

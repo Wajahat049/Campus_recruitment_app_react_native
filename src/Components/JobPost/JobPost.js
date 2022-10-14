@@ -139,6 +139,3 @@ const styles = StyleSheet.create({
     textShadowRadius: 2
   }
 })
-
-
-// jobTitle, jobDescription, jobExperience, jobSalary, jobType, jobTiming, jobTechnologies

@@ -2,7 +2,6 @@
 import React,{ useState,useEffect } from 'react';
 import { View, Text, Button, TextInput,Image,ToastAndroid } from 'react-native';
 import database from "@react-native-firebase/database";
-// import AsyncStorage from '@react-native-async-storage/async-storage'
 import {connect } from "react-redux"
 import {changeisuser} from "../../Store/action/index"
 import Admin from "../Dashboard/Admin"

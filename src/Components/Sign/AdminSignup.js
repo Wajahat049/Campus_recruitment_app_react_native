@@ -2,11 +2,9 @@ import * as React from 'react';
 import { View, Text, Button, TextInput,Image } from 'react-native';
 import database from "@react-native-firebase/database";
 import { useState } from 'react';
-// import {Picker} from "@react-native-picker/picker";
 
 
 function AdminSignup() {
-  // console.log("sign",props.navigation)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");

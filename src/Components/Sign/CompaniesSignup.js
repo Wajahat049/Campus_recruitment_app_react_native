@@ -16,13 +16,6 @@ function CompaniesSignUp(props) {
   const [description, setDescription] = useState("");
   const [website, setWebsite] = useState("");
 
-  // database().ref(`/Companies/company1gmail`).update({ Name:"Company1", email:"Company1@gmial.com", pass:"Comp1", job:"Developer", salary:50000, description:"good web developer", experience:"1 year" })
-  // database().ref(`/Companies/company2gmail`).update({ Name:"Company2", email:"Company2@gmial.com", pass:"Comp2", job:"Developer", salary:60000, description:"good web developer", experience:"1 year" })
-  // database().ref(`/Companies/company3gmail`).update({ Name:"Company3", email:"Company3@gmial.com", pass:"Comp3", job:"Developer", salary:70000, description:"good web developer", experience:"1 year" })
-  // database().ref(`/Companies/company4gmail`).update({ Name:"Company4", email:"Company4@gmial.com", pass:"Comp4", job:"Developer", salary:80000, description:"good web developer", experience:"1 year" })
-  // database().ref(`/Companies/company5gmail`).update({ Name:"Company5", email:"Company5@gmial.com", pass:"Comp5", job:"Developer", salary:90000, description:"good web developer", experience:"1 year" })
-  //description, webiste, contact, location
-
   const save_data = () => {
     var emailSplit=email.split("@")
 

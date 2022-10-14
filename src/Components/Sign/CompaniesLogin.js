@@ -56,13 +56,6 @@ function CompaniesLogin({navigation,changeiscompany}) {
       
       </View>
     )}
-
-    // else{
-    //   return(
-    //   <Companies navigation={props.navigation}></Companies>
-    //   )
-    // }
-// }
  
     
 function mapStateToProps(state) {

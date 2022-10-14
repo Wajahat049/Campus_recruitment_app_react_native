@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View, Text, ScrollView, TouchableHighlight, Alert, FlatList, ToastAndroid } from 'react-native';
-// import {SearchBar,Icon} from "react-native-elements";
 import { useState, useEffect } from 'react';
 import database from "@react-native-firebase/database";
 import { DataTable, Provider, Paragraph, Dialog, Portal, Button } from 'react-native-paper';

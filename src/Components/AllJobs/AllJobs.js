@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View, Text, ScrollView, TouchableHighlight, Alert, FlatList, ToastAndroid } from 'react-native';
-// import {SearchBar,Icon} from "react-native-elements";
 import { useState, useEffect } from 'react';
 import database from "@react-native-firebase/database";
 import { connect } from "react-redux"
@@ -12,10 +11,6 @@ import { Button } from 'react-native-paper';
 function AllJobs(props) {
 
   const [info, setinfo] = useState([]);
-
-  // var email = props.Student.Email
-  // console.log(email, "email")
-  // var emailSplit = email.split("@")
 
 
   useEffect(() => {
