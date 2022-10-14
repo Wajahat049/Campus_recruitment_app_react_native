@@ -1,4 +1,4 @@
-# CAMPUS RECRUITMENT APP
+# CAMPUS RECRUITMENT APP 📱
 
 This App built on **React Native** and **Firebase Realtime Database**
 
@@ -12,7 +12,7 @@ This App built on **React Native** and **Firebase Realtime Database**
 Welcome screen of the app which shows the three buttons for admin, student and company. 
 
 
-## ADMIN
+## ADMIN 👦
 
 1. **Login/Signup**
 
@@ -30,7 +30,7 @@ In companies information, admin can see a table which have company's name, email
 
 In students information, admin can see a table which have student's name, email and qualification. When admin click or touch any row then a modal of student's information shows.
 
-## STUDENT
+## STUDENT 👨‍🎓
 
 1. **Login/Signup**
 
@@ -53,7 +53,7 @@ In student profile, he/she can see her/him own profile or information like quali
 This screen shows all the jobs which are offer to the student. Student can easily apply any job by click an apply's button. After click a button, request will send to the company.
 
 
-## COMPANY
+## COMPANY 🏚
 
 1. **Login/Signup**
 
@@ -78,3 +78,7 @@ This screen shows all the job request of students. User can easily accept or rej
 6. **Job Post**
 
 User can easily post any job by fill this page.
+
+## LogOut
+
+Logout button shows every dashboard user can easily logout and navigates the home page
