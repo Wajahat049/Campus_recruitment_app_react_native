@@ -57,21 +57,24 @@ This screen shows all the jobs which are offer to the student. Student can easil
 
 1. **Login/Signup**
 
- When user click the Student button then in navigates to login/signup toggle of the admin. After Signin, proceeds to the next activity.
+ When user click the Company button then in navigates to login/signup toggle of the company. After Signin, proceeds to the next activity.
 
-2. **Student Dashboard**
+2. **Company's Dashboard**
 
-After successfully login. Student can easily access there own profile, All jobs and company's information.
+After successfully login. User can easily access there own profile, Job Requests, Job Post and student's information.
 
-3. **Companies Information**
+3. **Student's Information**
 
-In companies information, student can see a table which have company's name, email and location. When he/she click or touch any row then a modal of company's information shows which is very helpful for the student
+In student information, user can see a table which have student's name, email and qualification. When he/she click or touch any row then a modal of student's information shows which is very helpful for the user who can easily hire any student.
 
-4. **Student Profile**
+4. **Company Profile**
 
-In student profile, he/she can see her/him own profile or information like qualification, field, phone number or age etc.
+In company profile, he/she can see her/him own profile or information like location, phone number or weblink etc.
 
-5. **All Jobs**
+5. **Job Request**
 
-This screen shows all the jobs which are offer to the student. Student can easily apply any job by click an apply's button. After click a button, request will send to the company.
+This screen shows all the job request of students. User can easily accept or reject any student by click on the button.
 
+6. **Job Post**
+
+User can easily post any job by fill this page.
