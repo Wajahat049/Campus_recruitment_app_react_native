@@ -6,6 +6,7 @@ import {
   View, Text, Button, TextInput, Alert, StyleSheet,
   Image,
   TouchableOpacity,
+  ToastAndroid
 } from 'react-native';
 import { connect } from "react-redux"
 import { ScrollView, } from 'react-native-gesture-handler';
@@ -23,16 +24,30 @@ function JobPost(props) {
   const [jobTechnologies, setJobTechnologies] = useState("")
 
   const postJob = () => {
+
+    var email = props.Company.email
+    var splitEmail = email.split("@")
+
     database().ref(`/Jobs`).push().set({
-        jobTitle,
-        jobDescription,
-        jobExperience,
-        jobSalary,
-        jobType,
-        jobTiming,
-        jobTechnologies
-      })
-      .then(() => console.log('Job post successfully.'));
+      uid: splitEmail + "gmail",
+      jobTitle,
+      jobDescription,
+      jobExperience,
+      jobSalary,
+      jobType,
+      jobTiming,
+      jobTechnologies
+    })
+      .then(
+        ToastAndroid.show("Job post successfully", ToastAndroid.SHORT),
+        setJobDescription(""),
+        setJobExperience(""),
+        setJobSalary(""),
+        setJobTechnologies(""),
+        setJobTitle(""),
+        setJobTiming(""),
+        setJobType(""),
+      );
   }
 
   return (

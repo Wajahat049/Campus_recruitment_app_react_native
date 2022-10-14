@@ -10,7 +10,7 @@ import { changeisuser } from "../../Store/action/index"
 const Admin = (props) => {
   const LogOut = () => {
     props.changeisuser({})
-    props.navigation.navigate("AdminToggle")
+    props.navigation.navigate("Home")
   }
 
   return (

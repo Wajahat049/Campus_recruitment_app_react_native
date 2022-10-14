@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, ScrollView, TouchableHighlight, Alert,FlatList } from 'react-native';
+import { View, Text, ScrollView, TouchableHighlight, Alert, FlatList } from 'react-native';
 import { useState, useEffect } from 'react';
 import database from "@react-native-firebase/database";
 import { connect } from "react-redux"
@@ -14,6 +14,8 @@ function StudentsInfo(props) {
   const [theelement, settheelement] = useState({})
   const hideDialog = () => setVisible(false);
   const [info, setinfo] = useState([]);
+  const [refresh, setRefresh] = useState(false);
+
 
   const deleteInfo = (uid) => {
     Alert.alert(
@@ -24,7 +26,12 @@ function StudentsInfo(props) {
           text: "Cancel",
           style: "cancel"
         },
-        { text: "OK", onPress: () => database().ref('/Student/' + uid).remove().then(hideDialog()) }
+        {
+          text: "OK", onPress: () => database().ref('/Students/' + uid).remove().then(
+            hideDialog(),
+            setRefresh(!refresh)
+          )
+        }
       ]
     );
 
@@ -35,25 +42,26 @@ function StudentsInfo(props) {
   global.DATA = []
   var keyss = []
 
-  useEffect(()=>{
+  useEffect(() => {
 
-  database().ref('/Students').once("value").then(snapshot => {
-    var result = snapshot.val();
-    var keys = Object.entries(result)
-    for (var i = 0; i < keys.length; i++) {
-      var value = keys[i][1]
-      value.uid = keys[i][0]
-      keyss.push(value)
-    }
-    setinfo(keyss)
-  })
-  },[])
+    database().ref('/Students').once("value").then(snapshot => {
+      var result = snapshot.val();
+      var keys = Object.entries(result)
+      for (var i = 0; i < keys.length; i++) {
+        var value = keys[i][1]
+        value.uid = keys[i][0]
+        keyss.push(value)
+      }
+      setinfo(keyss)
+    })
+  }, [])
 
   const Hire = (element) => {
-  var email=props.Company.email
-  var splitEmail=email.split("@")
-    database().ref('/Students/' + element+"/Offers/"+splitEmail[0]).update(props.Company)
+    var email = props.Company.email
+    var splitEmail = email.split("@")
+    database().ref('/Students/' + element + "/Offers/" + splitEmail[0]).update(props.Company)
     hideDialog()
+    ToastAndroid.show("Hired!",ToastAndroid.SHORT)
 
   }
 
@@ -69,10 +77,10 @@ function StudentsInfo(props) {
 
       <TouchableHighlight style={{ backgroundColor: "white" }} key={element.index} onPress={() => onpressFunc(element.item)}>
         <View>
-          <DataTable.Row style={{padding: 20, borderColor: "#00b8e6", borderWidth: 1}}>
-            <DataTable.Cell  > <Text style={{color: "#00b8e6",}}> {element.item.Name} </Text> </DataTable.Cell>
-            <DataTable.Cell > <Text style={{color: "#00b8e6",}}> {element.item.Age} </Text> </DataTable.Cell>
-            <DataTable.Cell > <Text style={{color: "#00b8e6",}}> {element.item.Qualification} </Text> </DataTable.Cell>
+          <DataTable.Row style={{ padding: 20, borderColor: "#00b8e6", borderWidth: 1 }}>
+            <DataTable.Cell  > <Text style={{ color: "#00b8e6", }}> {element.item.Name} </Text> </DataTable.Cell>
+            <DataTable.Cell > <Text style={{ color: "#00b8e6", }}> {element.item.Email} </Text> </DataTable.Cell>
+            <DataTable.Cell > <Text style={{ color: "#00b8e6", }}> {element.item.Qualification} </Text> </DataTable.Cell>
           </DataTable.Row>
 
           <Portal >
@@ -86,15 +94,17 @@ function StudentsInfo(props) {
                 <Paragraph style={{ fontSize: 16, color: "gray" }}>Field : <Text style={{ fontWeight: "bold", color: "gray" }}>  {theelement.Field} </Text> </Paragraph>
               </Dialog.Content>
 
-              <Dialog.Actions style={{ justifyContent: "space-around", marginBottom: 20  }} >
+              <Dialog.Actions style={{ justifyContent: "space-around", marginBottom: 20 }} >
                 {props.User == "Admin" ?
                   <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() => deleteInfo(theelement.uid)}>
                     Delete
                   </Button> : <View></View>}
-
-                <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() =>  Hire(theelement.uid) }>
-                  Hire
-                </Button>
+                {props.User != "Admin" ?
+                  <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={() => Hire(theelement.uid)}>
+                    Hire
+                  </Button>
+                  : null
+                }
                 <Button color='white' style={{ backgroundColor: "#00b8e6", }} mode="outlined" onPress={hideDialog}>
                   Close
                 </Button>
@@ -116,9 +126,9 @@ function StudentsInfo(props) {
     <Provider>
       <DataTable>
         <DataTable.Header style={{ backgroundColor: "#00b8e6", borderColor: "#00b8e6", borderWidth: 2, }}>
-          <DataTable.Title> <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Name </Text> </DataTable.Title>
-          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Age </Text> </DataTable.Title>
-          <DataTable.Title > <Text style={{color: "white", fontWeight: "bold", fontSize: 16}}> Qualification </Text> </DataTable.Title>
+          <DataTable.Title> <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}> Name </Text> </DataTable.Title>
+          <DataTable.Title > <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}> Email </Text> </DataTable.Title>
+          <DataTable.Title > <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}> Qualification </Text> </DataTable.Title>
         </DataTable.Header>
         <FlatList
 
@@ -137,7 +147,7 @@ function StudentsInfo(props) {
 function mapStateToProps(state) {
   return {
     User: state.User,
-    Company:state.Company
+    Company: state.Company
   }
 }
 

@@ -14,7 +14,7 @@ function Students(props) {
 
   const LogOut = () => {
     props.changeisstudent({})
-    props.navigation.navigate("Studenttoggle")
+    props.navigation.navigate("Home")
   }
 
 
@@ -49,12 +49,12 @@ function Students(props) {
           </Text>
         </TouchableOpacity>
 
-        {/* <TouchableOpacity style={styles.card} onPress={() => props.navigation.navigate("CompanyHire")} >
+        <TouchableOpacity style={styles.card} onPress={() => props.navigation.navigate("AllJobs")} >
           <Image source={require("../../Images/company-hire.png")} style={styles.cardImg} />
           <Text style={styles.cardText}>
-            Company Hiring
+            All Jobs
           </Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
 
         <View style={{ marginTop: 10, width: 150, marginBottom: 20 }}>
           <Button color="#00b8e6" style={{ fontSize: 30 }} onPress={() => Alert.alert(
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
-    marginLeft: 10,
+    marginLeft: 13,
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 2

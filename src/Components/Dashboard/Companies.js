@@ -13,7 +13,7 @@ function Companies(props) {
 
   const LogOut = () => {
     props.changeiscompany({})
-    props.navigation.navigate("Companytoggle")
+    props.navigation.navigate("Home")
   }
 
   return (
